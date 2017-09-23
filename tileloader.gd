@@ -2,9 +2,13 @@ tool
 extends Node
 
 export(bool) var reset = false setget onReset
-
+export(int) var tileSize = 16
+export(int) var w = 9
+export(int) var h = 4
+export(int) var hoffset = 0
+export(int) var woffset = 0
 #config
-'''var tileSize = 16
+#var tileSize = 16
 var spritesheet = preload("res://dungeon/dungeon.png")
 
 func _ready():
@@ -13,10 +17,6 @@ func _ready():
 func onReset(isTriggered):
     if (isTriggered):
         reset = false
-        var w = 9
-        var h = 4
-        var hoffset = 0
-        var woffset = 0
 
         for y in range(h):
             for x in range(w):
@@ -26,5 +26,5 @@ func onReset(isTriggered):
                 tile.set_name(str(x+y*w))
                 tile.set_texture(spritesheet)
                 tile.set_region(true)
-                tile.set_region_rect(Rect2(x*tileSize, y*tileSize, tileSize, tileSize))
-                tile.set_pos(Vector2(x*tileSize+tileSize/2, y*tileSize+tileSize/2))'''
+                tile.set_region_rect(Rect2((woffset*tileSize) + x*tileSize, (hoffset*tileSize) + y*tileSize, tileSize, tileSize))
+                tile.set_pos(Vector2((woffset*tileSize) + (x*tileSize+tileSize/2), (hoffset*tileSize) + (y*tileSize+tileSize/2)))
