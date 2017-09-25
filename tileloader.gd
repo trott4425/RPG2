@@ -7,9 +7,10 @@ export(int) var w = 9
 export(int) var h = 4
 export(int) var hoffset = 0
 export(int) var woffset = 0
+export(String) var tileNamePrefix = "Ground A"
 #config
 #var tileSize = 16
-var spritesheet = preload("res://dungeon/dungeon.png")
+var spritesheet = preload("res://dungeon_atlas.tex")
 
 func _ready():
     pass
@@ -23,7 +24,7 @@ func onReset(isTriggered):
                 var tile = Sprite.new()
                 add_child(tile)
                 tile.set_owner(self)
-                tile.set_name(str(x+y*w))
+                tile.set_name(tileNamePrefix + str( x+y*w))
                 tile.set_texture(spritesheet)
                 tile.set_region(true)
                 tile.set_region_rect(Rect2((woffset*tileSize) + x*tileSize, (hoffset*tileSize) + y*tileSize, tileSize, tileSize))
