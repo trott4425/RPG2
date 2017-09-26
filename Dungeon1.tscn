@@ -108,7 +108,7 @@ tile_data = IntArray( 0, 62, 1, 79, 2, 79, 3, 79, 4, 79, 5, 79, 6, 79, 7, 79, 8,
 
 transform/pos = Vector2( 240, 368 )
 frames = SubResource( 1 )
-animation = "default"
+animation = "left_walking"
 script/script = ExtResource( 22 )
 
 
