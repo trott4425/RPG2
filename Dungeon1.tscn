@@ -1,84 +1,91 @@
-[gd_scene load_steps=24 format=1]
+[gd_scene load_steps=27 format=1]
 
 [ext_resource path="res://dungeon.tres" type="TileSet" id=1]
-[ext_resource path="res://Hero/up_stand.tex" type="Texture" id=2]
+[ext_resource path="res://playerMovement.gd" type="Script" id=2]
 [ext_resource path="res://Hero/down_walk1.tex" type="Texture" id=3]
 [ext_resource path="res://Hero/down_walk2.tex" type="Texture" id=4]
-[ext_resource path="res://Hero/down_stand.tex" type="Texture" id=5]
-[ext_resource path="res://Hero/left_walk1.tex" type="Texture" id=6]
-[ext_resource path="res://Hero/left_walk2.tex" type="Texture" id=7]
-[ext_resource path="res://Hero/right_walk1.tex" type="Texture" id=8]
-[ext_resource path="res://Hero/right_walk2.tex" type="Texture" id=9]
-[ext_resource path="res://Hero/up_walk1.tex" type="Texture" id=10]
-[ext_resource path="res://Hero/up_walk2.tex" type="Texture" id=11]
-[ext_resource path="res://Hero/right_stand.tex" type="Texture" id=12]
-[ext_resource path="res://Hero/laugh1.tex" type="Texture" id=13]
-[ext_resource path="res://Hero/laugh2.tex" type="Texture" id=14]
-[ext_resource path="res://Hero/laugh3.tex" type="Texture" id=15]
-[ext_resource path="res://Hero/shake1.tex" type="Texture" id=16]
-[ext_resource path="res://Hero/shake2.tex" type="Texture" id=17]
-[ext_resource path="res://Hero/shake3.tex" type="Texture" id=18]
-[ext_resource path="res://Hero/nod1.tex" type="Texture" id=19]
-[ext_resource path="res://Hero/nod2.tex" type="Texture" id=20]
-[ext_resource path="res://Hero/nod3.tex" type="Texture" id=21]
-[ext_resource path="res://heroAnimator.gd" type="Script" id=22]
+[ext_resource path="res://Hero/up_walk1.tex" type="Texture" id=5]
+[ext_resource path="res://Hero/up_walk2.tex" type="Texture" id=6]
+[ext_resource path="res://Hero/left_walk1.tex" type="Texture" id=7]
+[ext_resource path="res://Hero/left_walk2.tex" type="Texture" id=8]
+[ext_resource path="res://Hero/down_stand.tex" type="Texture" id=9]
+[ext_resource path="res://Hero/left_stand.tex" type="Texture" id=10]
+[ext_resource path="res://Hero/right_stand.tex" type="Texture" id=11]
+[ext_resource path="res://Hero/right_walk1.tex" type="Texture" id=12]
+[ext_resource path="res://Hero/right_walk2.tex" type="Texture" id=13]
+[ext_resource path="res://Hero/up_stand.tex" type="Texture" id=14]
+[ext_resource path="res://Hero/nod1.tex" type="Texture" id=15]
+[ext_resource path="res://Hero/nod2.tex" type="Texture" id=16]
+[ext_resource path="res://Hero/nod3.tex" type="Texture" id=17]
+[ext_resource path="res://Hero/laugh1.tex" type="Texture" id=18]
+[ext_resource path="res://Hero/laugh2.tex" type="Texture" id=19]
+[ext_resource path="res://Hero/laugh3.tex" type="Texture" id=20]
+[ext_resource path="res://Hero/shake1.tex" type="Texture" id=21]
+[ext_resource path="res://Hero/shake2.tex" type="Texture" id=22]
+[ext_resource path="res://Hero/shake3.tex" type="Texture" id=23]
+[ext_resource path="res://heroAnimator.gd" type="Script" id=24]
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
-"frames": [ ExtResource( 2 ) ],
-"loop": true,
-"name": "up_stand",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
 "loop": true,
 "name": "down_walking",
 "speed": 5.0
 }, {
-"frames": [  ],
-"loop": true,
-"name": "left_stand",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 5 ) ],
-"loop": true,
-"name": "down_stand",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
-"loop": true,
-"name": "left_walking",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 8 ), ExtResource( 9 ) ],
-"loop": true,
-"name": "right_walkingg",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 10 ), ExtResource( 11 ) ],
+"frames": [ ExtResource( 5 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "up_walking",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 12 ) ],
+"frames": [ ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "left_walking",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "down_stand",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "left_stand",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ) ],
 "loop": true,
 "name": "right_stand",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ],
+"frames": [ ExtResource( 12 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "right_walking",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ) ],
+"loop": true,
+"name": "up_stand",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ) ],
+"loop": true,
+"name": "nodding",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ) ],
 "loop": true,
 "name": "laughing",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ) ],
+"frames": [ ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ) ],
 "loop": true,
 "name": "shaking",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ) ],
-"loop": true,
-"name": "nodding",
 "speed": 5.0
 } ]
 
@@ -104,11 +111,30 @@ collision/mask = 1
 occluder/light_mask = 1
 tile_data = IntArray( 0, 62, 1, 79, 2, 79, 3, 79, 4, 79, 5, 79, 6, 79, 7, 79, 8, 79, 9, 79, 10, 79, 11, 79, 12, 87, 13, 87, 14, 87, 15, 87, 16, 74, 17, 54, 65536, 62, 65537, 87, 65538, 87, 65539, 87, 65540, 74, 65541, 79, 65542, 79, 65543, 81, 65544, 79, 65545, 79, 65546, 79, 65547, 88, 65548, 109, 65549, 109, 65550, 109, 65551, 109, 65552, 109, 65553, 54, 131072, 62, 131073, 109, 131074, 109, 131075, 109, 131076, 109, 131077, 86, 131078, 73, 131079, 89, 131080, 73, 131081, 73, 131082, 88, 131083, 109, 131084, 109, 131085, 109, 131086, 109, 131087, 109, 131088, 109, 131089, 54, 196608, 62, 196609, 109, 196610, 109, 196611, 9, 196612, 109, 196613, 109, 196614, 101, 196615, 97, 196616, 103, 196617, 109, 196618, 109, 196619, 109, 196620, 109, 196621, 109, 196622, 109, 196623, 109, 196624, 109, 196625, 54, 262144, 62, 262145, 109, 262146, 9, 262147, 109, 262148, 109, 262149, 109, 262150, 99, 262151, 94, 262152, 104, 262153, 109, 262154, 109, 262155, 109, 262156, 109, 262157, 109, 262158, 109, 262159, 109, 262160, 109, 262161, 54, 327680, 62, 327681, 109, 327682, 109, 327683, 109, 327684, 109, 327685, 109, 327686, 99, 327687, 94, 327688, 104, 327689, 109, 327690, 109, 327691, 109, 327692, 109, 327693, 109, 327694, 109, 327695, 109, 327696, 109, 327697, 54, 393216, 62, 393217, 109, 393218, 109, 393219, 109, 393220, 109, 393221, 109, 393222, 99, 393223, 94, 393224, 104, 393225, 109, 393226, 109, 393227, 109, 393228, 109, 393229, 109, 393230, 109, 393231, 109, 393232, 109, 393233, 54, 458752, 62, 458753, 109, 458754, 109, 458755, 109, 458756, 109, 458757, 109, 458758, 99, 458759, 94, 458760, 104, 458761, 109, 458762, 109, 458763, 109, 458764, 109, 458765, 109, 458766, 109, 458767, 109, 458768, 109, 458769, 54, 524288, 62, 524289, 109, 524290, 109, 524291, 109, 524292, 109, 524293, 109, 524294, 99, 524295, 94, 524296, 104, 524297, 109, 524298, 109, 524299, 109, 524300, 109, 524301, 109, 524302, 109, 524303, 109, 524304, 109, 524305, 54, 589824, 62, 589825, 109, 589826, 109, 589827, 109, 589828, 109, 589829, 109, 589830, 99, 589831, 94, 589832, 104, 589833, 109, 589834, 109, 589835, 109, 589836, 109, 589837, 109, 589838, 109, 589839, 109, 589840, 109, 589841, 54, 655360, 62, 655361, 109, 655362, 109, 655363, 109, 655364, 109, 655365, 109, 655366, 99, 655367, 94, 655368, 104, 655369, 109, 655370, 109, 655371, 109, 655372, 109, 655373, 109, 655374, 109, 655375, 109, 655376, 109, 655377, 54, 720896, 62, 720897, 109, 720898, 109, 720899, 109, 720900, 109, 720901, 109, 720902, 99, 720903, 94, 720904, 104, 720905, 109, 720906, 109, 720907, 109, 720908, 109, 720909, 109, 720910, 109, 720911, 109, 720912, 109, 720913, 54, 786432, 62, 786433, 109, 786434, 109, 786435, 109, 786436, 109, 786437, 109, 786438, 99, 786439, 94, 786440, 104, 786441, 109, 786442, 109, 786443, 109, 786444, 109, 786445, 109, 786446, 109, 786447, 109, 786448, 109, 786449, 54, 851968, 62, 851969, 109, 851970, 109, 851971, 109, 851972, 109, 851973, 109, 851974, 99, 851975, 94, 851976, 104, 851977, 109, 851978, 109, 851979, 109, 851980, 109, 851981, 109, 851982, 109, 851983, 109, 851984, 109, 851985, 54, 917504, 62, 917505, 109, 917506, 109, 917507, 109, 917508, 109, 917509, 109, 917510, 99, 917511, 94, 917512, 104, 917513, 109, 917514, 109, 917515, 109, 917516, 109, 917517, 109, 917518, 109, 917519, 109, 917520, 109, 917521, 54, 983040, 62, 983041, 109, 983042, 109, 983043, 109, 983044, 109, 983045, 109, 983046, 99, 983047, 94, 983048, 104, 983049, 109, 983050, 109, 983051, 109, 983052, 109, 983053, 109, 983054, 109, 983055, 109, 983056, 109, 983057, 54, 1048576, 62, 1048577, 109, 1048578, 109, 1048579, 109, 1048580, 109, 1048581, 109, 1048582, 99, 1048583, 94, 1048584, 104, 1048585, 109, 1048586, 109, 1048587, 109, 1048588, 109, 1048589, 109, 1048590, 109, 1048591, 109, 1048592, 109, 1048593, 54, 1114112, 62, 1114113, 109, 1114114, 109, 1114115, 109, 1114116, 109, 1114117, 109, 1114118, 99, 1114119, 94, 1114120, 104, 1114121, 109, 1114122, 109, 1114123, 109, 1114124, 109, 1114125, 109, 1114126, 109, 1114127, 109, 1114128, 109, 1114129, 54, 1179648, 62, 1179649, 109, 1179650, 109, 1179651, 109, 1179652, 109, 1179653, 109, 1179654, 99, 1179655, 94, 1179656, 104, 1179657, 109, 1179658, 109, 1179659, 109, 1179660, 109, 1179661, 109, 1179662, 109, 1179663, 109, 1179664, 109, 1179665, 54, 1245184, 62, 1245185, 109, 1245186, 109, 1245187, 109, 1245188, 109, 1245189, 109, 1245190, 99, 1245191, 94, 1245192, 104, 1245193, 109, 1245194, 109, 1245195, 109, 1245196, 109, 1245197, 109, 1245198, 109, 1245199, 109, 1245200, 109, 1245201, 54, 1310720, 62, 1310721, 109, 1310722, 109, 1310723, 109, 1310724, 109, 1310725, 100, 1310726, 95, 1310727, 94, 1310728, 96, 1310729, 97, 1310730, 97, 1310731, 97, 1310732, 97, 1310733, 97, 1310734, 97, 1310735, 97, 1310736, 103, 1310737, 54, 1376256, 62, 1376257, 109, 1376258, 109, 1376259, 109, 1376260, 109, 1376261, 99, 1376262, 94, 1376263, 94, 1376264, 94, 1376265, 94, 1376266, 94, 1376267, 94, 1376268, 94, 1376269, 94, 1376270, 94, 1376271, 94, 1376272, 104, 1376273, 54, 1441792, 62, 1441793, 109, 1441794, 109, 1441795, 109, 1441796, 109, 1441797, 107, 1441798, 106, 1441799, 106, 1441800, 106, 1441801, 106, 1441802, 106, 1441803, 106, 1441804, 106, 1441805, 98, 1441806, 94, 1441807, 102, 1441808, 108, 1441809, 54, 1507328, 62, 1507329, 109, 1507330, 109, 1507331, 109, 1507332, 109, 1507333, 109, 1507334, 109, 1507335, 109, 1507336, 109, 1507337, 109, 1507338, 109, 1507339, 109, 1507340, 109, 1507341, 99, 1507342, 94, 1507343, 104, 1507344, 109, 1507345, 54, 1572864, 49, 1572865, 49, 1572866, 49, 1572867, 49, 1572868, 49, 1572869, 49, 1572870, 49, 1572871, 49, 1572872, 49, 1572873, 49, 1572874, 49, 1572875, 49, 1572876, 49, 1572877, 107, 1572878, 94, 1572879, 108, 1572880, 49, 1572881, 49 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
 
-transform/pos = Vector2( 240, 368 )
-frames = SubResource( 1 )
+transform/pos = Vector2( 121.822, 121.786 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1.48077, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+collision/margin = 0.08
+script/script = ExtResource( 2 )
+WALK_SPEED = 200
+
+[node name="HeroSprite" type="AnimatedSprite" parent="KinematicBody2D"]
+
+frames = SubResource( 2 )
 animation = "left_walking"
-script/script = ExtResource( 22 )
+script/script = ExtResource( 24 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
+
+transform/scale = Vector2( 1, 1.48077 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
 
 
