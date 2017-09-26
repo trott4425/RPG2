@@ -16,6 +16,10 @@ func _ready():
     pass
 
 func onReset(isTriggered):
+    if(w == 0 || h == 0):
+        w = spritesheet.get_width() / tileSize
+        h = spritesheet.get_height() / tileSize
+
     if (isTriggered):
         reset = false
 
