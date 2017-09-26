@@ -10,7 +10,7 @@ export(int) var woffset = 0
 export(String) var tileNamePrefix = "Ground A"
 #config
 #var tileSize = 16
-var spritesheet = preload("res://dungeon_atlas.tex")
+var spritesheet = preload("res://dungeon.tex")
 
 func _ready():
     pass
